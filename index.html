@@ -14,21 +14,32 @@
   </head>
   <body>
     <div class="jumbotron jumbotron-fluid bg-secondary text-white">
-        <div class="container ">
-          <h1 class="display-4 text-center"  >THE NOMINATOR</h1>
-          <p class="lead text-center">
-              Nominate 5 of Your Favorite Movies for Glorious Rewards!
-          </p>
-        </div>
+      <div class="container">
+        <h1 class="display-4 text-center">THE NOMINATOR</h1>
+        <p class="lead text-center">
+          Nominate 5 of Your Favorite Movies for Glorious Rewards!
+        </p>
       </div>
+    </div>
+    <main class="container">
+      <form id="movie-form">
+        <div class="form-group">
+          <label for="movie-input">Search for Movies!</label>
+          <input
+            type="text"
+            class="form-control"
+            id="movie-input"
+            placeholder="Enter Movie Title Here"
+          />
+          <button id="movie-search" type="button" class="btn btn-primary">
+            Search
+          </button>
+        </div>
+      </form>
 
+      <div id="movies-view"></div>
+    </main>
 
-
-
-
-
-
-    <script src="script.js"></script>
     <script
       src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
       integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
@@ -44,5 +55,6 @@
       integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
       crossorigin="anonymous"
     ></script>
+    <script src="script.js"></script>
   </body>
 </html>
