@@ -12,22 +12,43 @@ runSearch.click(function () {
 
 function displayMovieInfo(movie) {
   
-    var queryURL = `https://www.omdbapi.com/?s=${movie}&apikey=20928117`;
+    const queryURL = `https://www.omdbapi.com/?s=${movie}&apikey=20928117`;
 
     // Creating an AJAX call for the specific movie button being clicked
     $.ajax({
       url: queryURL,
       method: "GET"
     }).then(function(response) {
+      console.log(response)
+      for (let i = 0; i < 10; i++) {
+        let movieInfo = response.Search[i];
+        //console.log(movieInfo)
+        const movieDiv = $("<div id='movie'class='card'style='width: 10rem'>");
+        
+
+        const poster = movieInfo.Poster;
+        if (poster == "N/A") {
+          return
+        } else {const movieImg = $("<img class='card-img-top'>").attr("src", poster)
+        movieDiv.append(movieImg);
+        }
+        
+        
+
+        const title = movieInfo.Title
+        const pOne = $("<p>").text("Title: " + title);
+        $("#movies-view").append(movieDiv);
+
+        
+      }
 
       // Creating a div to hold the movie
       var movieDiv = $("<div class='movie'>");
-
-      // Storing the rating data
-      var rating = response.Rated;
+      var title = response.Search.Title;
+      //console.log(Title)
 
       // Creating an element to have the rating displayed
-      var pOne = $("<p>").text("Rating: " + rating);
+      var pOne = $("<p>").text("Title: " + title);
 
       // Displaying the rating
       movieDiv.append(pOne);
@@ -60,7 +81,7 @@ function displayMovieInfo(movie) {
       movieDiv.append(image);
 
       // Putting the entire movie above the previous movies
-      $("#movies-view").prepend(movieDiv);
+      //$("#movies-view").prepend(movieDiv);
     });
 
   }
