@@ -1,3 +1,10 @@
 #poster {
-    max-width: 7rem;
+    max-width: 5rem;
+}
+h5 {
+    font-size: 16px;
+}
+
+h6 {
+    font-size: 12px;
 }
